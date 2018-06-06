@@ -5,7 +5,7 @@ package com;
 
 /**
  * @author Kee
- *
+ *Single Linked List
  */
 public class LinkedList {
 	Node head;
@@ -32,18 +32,23 @@ public class LinkedList {
 			 head = new_node;
 		}
 	}
+	//get first element from front
 	public int topFront()
 	{
 		return head.data;
 	}
-	public void removeAtFront()
+	public Integer removeAtFront()
 	{
+		int data ;
 		if(null != head)
 		{
 		Node toRemove=head;
 		head=toRemove.next;
+		data = toRemove.data;
 		toRemove = null;
+		return data;
 		}
+		return null;
 		
 	}
 	public int getSize()
@@ -63,7 +68,7 @@ public class LinkedList {
 		return size;
 			
 	}
-	
+	//get first element from last
 	@SuppressWarnings("unused")
 	public int topBack() throws  Exception
 	{
@@ -95,20 +100,47 @@ public class LinkedList {
 			h.next = new_node;
 		}
 	}
-	public void removeBack() 
+	public Integer removeBack() 
 	{
-		if(null != this)
+		if(null != this && null != this.head)
 		{
 			Node h = this.head;
-			while(h.next !=null)
+			int retVal = h.data;
+			while(null != h.next )
 			{
 				if(h.next.next == null)
+				{
+					retVal = h.next.data;
 					break;
+				}
 				else
+				{
 					h = h.next;
+					retVal = h.data;
+					
+				}
 				
 			}
 			h.next = null;
+			return retVal;
+		}
+		return null;
+	}
+	public int get(int index)
+	{
+		int data;
+		Node h = head;
+		if(index == 0)
+		{
+			return head.data;
+		}
+		else
+		{
+			for(int i =1 ;i<=index ;i++)
+			{
+				h = h.next;
+			}
+			return h.data;
 		}
 	}
 }
