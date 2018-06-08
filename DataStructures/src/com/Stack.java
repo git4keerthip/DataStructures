@@ -1,18 +1,27 @@
 package com;
 /**
  * Stacks implementation using Linked List
- * @author Kee
+ * 		LIFO / FILO
+ * 	insert from here and remove from here
+ * |		|
+ * |----f---| 
+ * |----e---|
+ * |----d---|
+ * |----c---|
+ * |----b---|
+ * |----a---|
  *
  */
 public class Stack {
 
 	int top;
 	int max = 1000;
-	LinkedList ll = new LinkedList();
+	LinkedList ll ;
 	Stack()
 	{
 		
 		top = -1;//indicate stack empty initially
+		ll = new LinkedList();
 	}
 	
 	public boolean push(int a)

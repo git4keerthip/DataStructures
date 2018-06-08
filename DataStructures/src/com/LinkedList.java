@@ -4,8 +4,13 @@
 package com;
 
 /**
- * @author Kee
  *Single Linked List
+ *inert and remove from either ends
+ * ----- ----------  ----------  -----------
+ *|	head|    1		|	2		|	3		|
+ *| 	|			|			|			|
+ *|	->1	|next->2	|next->3	|	null	|
+ * ----- ----------- ----------- -----------
  */
 public class LinkedList {
 	Node head;
@@ -54,9 +59,9 @@ public class LinkedList {
 	public int getSize()
 	{
 		int size = 0;
-		if(this !=null && this.head != null)
+		if(head != null)
 		{
-			Node temp = this.head;
+			Node temp = head;
 			size=1;
 			while(temp.next != null)
 			{
@@ -70,41 +75,33 @@ public class LinkedList {
 	}
 	//get first element from last
 	@SuppressWarnings("unused")
-	public int topBack() throws  Exception
+	public Integer topBack() 
 	{
 		int data = 0;
-		if(null != this)
+		Node h = head;
+		while(h.next !=null)
 		{
-			Node h = this.head;
-			while(h.next !=null)
-			{
-				h = h.next;
-			}
-			data = h.data;
+			h = h.next;
 		}
-		else
-			throw new Exception();
-		
+		data = h.data;
 		return data;
+		
 	}
 	public void addToBack(int a) 
 	{
-		if(null != this)
-		{
-			Node new_node = new Node(a);
+		Node new_node = new Node(a);
 			Node h = this.head;
 			while(h.next !=null)
 			{
 				h = h.next;
 			}
 			h.next = new_node;
-		}
 	}
 	public Integer removeBack() 
 	{
-		if(null != this && null != this.head)
+		if(null != head)
 		{
-			Node h = this.head;
+			Node h = head;
 			int retVal = h.data;
 			while(null != h.next )
 			{
@@ -126,6 +123,7 @@ public class LinkedList {
 		}
 		return null;
 	}
+	//return element at given index
 	public int get(int index)
 	{
 		int data;
@@ -141,6 +139,30 @@ public class LinkedList {
 				h = h.next;
 			}
 			return h.data;
+		}
+	}
+	
+	//search given element and return index where element present
+	public void search(int data)
+	{
+		boolean found = false;
+		String at = "" ;
+		if(null != this)
+		{
+			for(int j =0 ; j<this.getSize(); j++)
+			{
+				if(this.get(j)== data)
+				{
+					found = true;
+					at = at + "     " + j ;
+				}
+			}
+			if(found)
+			{
+				System.out.println("element found at index(s) "+ at);
+			}
+			else
+				System.out.println("element not there");
 		}
 	}
 }
