@@ -132,6 +132,7 @@ public class LinkedList {
 		}
 		return null;
 	}
+	//return element at given index
 	public int get(int index)
 	{
 		int data;
@@ -147,6 +148,31 @@ public class LinkedList {
 				h = h.next;
 			}
 			return h.data;
+		}
+	}
+	
+	//search given element and return index where element present
+	public void search(int data)
+	{
+		boolean found = false;
+		String at = "" ;
+		if(null != this)
+		{
+			for(int j =0 ; j<this.getSize(); j++)
+			{
+				if(this.get(j)== data)
+				{
+					found = true;
+					at = at + "     " + j ;
+				}
+				
+			}
+			if(found)
+			{
+				System.out.println("element found at index(s) "+ at);
+			}
+			else
+				System.out.println("element not there");
 		}
 	}
 }
