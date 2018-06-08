@@ -28,7 +28,7 @@ public class PracticeMain {
 		ndt.removeAtFront();
 		System.out.println("size after remove :"+ndt.getSize());
 		ndt.addAtFront(3);
-		ndt.addAtFront(4);
+		ndt.addAtFront(1);
 		ndt.addAtFront(5);
 		System.out.println("Linked List elements ");
 		loopLinkedList(ndt);
@@ -38,18 +38,12 @@ public class PracticeMain {
 		System.out.println("top element data from front after 0 element add2back: " + ndt.topFront());
 		System.out.println("Linked List elements ");
 		loopLinkedList(ndt);
-		
-		try {
-			System.out.println("top element data from back: " +ndt.topBack());
+		System.out.println("top element data from back: " +ndt.topBack());
 			ndt.removeBack();
 			System.out.println("top element data from back after removeback: " +ndt.topBack());
 			System.out.println("Linked List elements ");
 			loopLinkedList(ndt);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("Null pointer exception");
-		}
+			ndt.search(1);
 		/*****
 		 * Stacks
 		 */
@@ -94,7 +88,7 @@ public class PracticeMain {
 		loopQueue(que);
 		System.out.println("queue rear : "+ que.rear);
 		System.out.println("queue front : "+ que.front);
-		
+
 		
 		
 	}
