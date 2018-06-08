@@ -28,7 +28,7 @@ public class PracticeMain {
 		ndt.removeAtFront();
 		System.out.println("size after remove :"+ndt.getSize());
 		ndt.addAtFront(3);
-		ndt.addAtFront(4);
+		ndt.addAtFront(1);
 		ndt.addAtFront(5);
 		System.out.println("Linked List elements ");
 		loopLinkedList(ndt);
@@ -38,21 +38,16 @@ public class PracticeMain {
 		System.out.println("top element data from front after 0 element add2back: " + ndt.topFront());
 		System.out.println("Linked List elements ");
 		loopLinkedList(ndt);
-		
-		try {
-			System.out.println("top element data from back: " +ndt.topBack());
+		System.out.println("top element data from back: " +ndt.topBack());
 			ndt.removeBack();
 			System.out.println("top element data from back after removeback: " +ndt.topBack());
 			System.out.println("Linked List elements ");
 			loopLinkedList(ndt);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("Null pointer exception");
-		}
+			ndt.search(-5);
 		/*****
 		 * Stacks
 		 */
+		System.out.println("*********Stack**********");
 		Stack st = new Stack();
 		st.push(0);
 		st.push(1);
@@ -67,6 +62,33 @@ public class PracticeMain {
 		System.out.println("element 3 is pushed " );
 		System.out.println("elements in stack");
 		loopStack(st);
+		/****
+		 * QUEUE
+		 */
+		System.out.println("*********Queue**********");
+		Queue que = new Queue(100);
+		que.enqueue(0);
+		que.enqueue(1);
+		que.enqueue(2);
+		loopQueue(que);
+		System.out.println("queue size : "+ que.getSize());
+		System.out.println("queue rear : "+ que.rear);
+		System.out.println("queue front : "+ que.front);
+		System.out.println("FILO -- element removed from queue is " +que.dequeue());
+		loopQueue(que);
+		System.out.println("queue rear : "+ que.rear);
+		System.out.println("queue front : "+ que.front);
+		que.enqueue(3);
+		System.out.println("element added");
+		loopQueue(que);
+		System.out.println("queue rear : "+ que.rear);
+		System.out.println("queue front : "+ que.front);
+		que.dequeue();que.dequeue();
+		System.out.println("two elements removed");
+		loopQueue(que);
+		System.out.println("queue rear : "+ que.rear);
+		System.out.println("queue front : "+ que.front);
+
 		
 		
 	}
@@ -88,5 +110,13 @@ public class PracticeMain {
 		}
 		
 	}
-
+	public static void loopQueue(Queue ldl)
+	{
+		for (int i =0 ; i<ldl.getSize() ; i++)
+		{
+			System.out.println("|<_"+ldl.get(i)+ "_>|");
+			
+		}
+		
+	}
 }
