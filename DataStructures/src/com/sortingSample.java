@@ -50,18 +50,17 @@ public class sortingSample {
   public static void insertionSort(int ary[])
   {
 	  int len = ary.length-1;  
-	   for(int  k =1; k<len ;k++)
+	   for(int  k =1; k<=len ;k++)
 		  {
-			  for(int j = 0; j <=k-1 ; j++)
-			  {
-				  int temp = ary[k];
-				  if(ary[j] > temp)
+		   		int temp = ary[k];
+		   		int j =k-1;
+			  while(j >=0 && ary[j] > temp)
 				  {
-					  ary[k]=ary[j];
-					  ary[j] = temp;
-				  
+					  ary[j+1]=ary[j];
+					  j--;
 				  }
-			  } 
+			ary[j+1] = temp;
+			  
 		  }
 	   System.out.println();
 	  System.out.println("/////insertion  Sort//// "); 
