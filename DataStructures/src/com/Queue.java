@@ -36,7 +36,6 @@ public class Queue {
 				ll.addAtFront(a);
 				rear = ll.topFront(); 
 				front=ll.topBack();
-				
 			}
 		}
 		public int getSize() 
